@@ -1,5 +1,12 @@
-@extends('layouts.master')
-@section('content')
+{{-- @extends('layouts.master')
+@section('content') --}}
+<x-app-layout>
+  <x-slot name="header">
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+          {{ __('Clients') }}
+      </h2>
+  </x-slot>
+
 <h3>Edit Client</h3>
 <form action="/client/{{ $client->id }}" method="POST">
     @method('put')
@@ -17,4 +24,5 @@
     <input type="text" name="client_mobile" placeholder="Mobile Phone" value="{{ $client->client_mobile }}"/><br>
     <input type="submit" name="submit" value="Update">
 </form>
-@stop
+</x-app-layout>
+{{-- @stop --}}
