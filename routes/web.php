@@ -20,9 +20,9 @@ Route::get('/', function () {
 
 // Route::get('/', [ClientController::class, "index"]);
 Route::get('/client', [ClientController::class, "index"])->middleware(['auth', 'verified'])->name('client');
-Route::get('/client/create', [ClientController::class, "create"]);
+Route::get('/client/create', [ClientController::class, "create"])->middleware(['auth', 'verified'])->name('create');
 Route::post('/client/store', [ClientController::class, "store"]);
-Route::get('/client/{id}/edit', [ClientController::class, "edit"]);
+Route::get('/client/{id}/edit', [ClientController::class, "edit"])->middleware(['auth', 'verified'])->name('edit');
 Route::put('/client/{id}', [ClientController::class, "update"]);
 Route::delete('/client/{id}', [ClientController::class, "destroy"]);
 
