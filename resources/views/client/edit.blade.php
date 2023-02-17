@@ -8,24 +8,29 @@
             @method('put')
             @csrf
             <label for="client_id" class="form-label">ID</label>
-            <input type="text" name="client_id" class="form-control" id="client_id" placeholder=""
-                value="{{ $client->client_id }}"><br />
+            <input type="text" name="id" class="form-control" id="client_id" placeholder=""
+                value="{{ $client->id }}"><br />
 
             <label for="client_name" class="form-label">Name</label>
-            <input type="text" class="form-control" name="client_name" placeholder="Name"
-                value="{{ $client->client_name }}" /><br />
+            <input type="text" class="form-control" name="name" placeholder="Name"
+                value="{{ $client->name }}" /><br />
 
             <label for="client_email_1" class="form-label">Email 1</label>
-            <input type="text" class="form-control" name="client_email_1" placeholder="Email 1"
-                value="{{ $client->client_email_1 }}" /><br />
+            <input type="text" class="form-control" name="email1" placeholder="Email 1"
+                value="{{ $client->email1 }}" /><br />
 
             <label for="client_email_2" class="form-label">Email 2</label>
-            <input type="text" class="form-control" name="client_email_2" placeholder="Email 2"
-                value="{{ $client->client_email_2 }}" /><br />
+            <input type="text" class="form-control" name="email2" placeholder="Email 2"
+                value="{{ $client->email2 }}" /><br />
 
-            <label for="client_mobile" class="form-label">Mobile Phone</label>
-            <input type="text" class="form-control" name="client_mobile" placeholder="Mobile Phone"
-                value="{{ $client->client_mobile }}" /><br>
+            <label for="client_mobile" class="form-label">Phone</label>
+            <input type="text" class="form-control" name="phone" placeholder="Mobile Phone"
+                value="{{ $client->phone }}" /><br>
+
+                <label for="client_mobile" class="form-label">Phone</label>
+            <input type="text" class="form-control" name="address" placeholder="Mobile Phone"
+                value="{{ $client->address }}" /><br>
+
             <input type="submit" name="submit" value="Update" class="btn btn-primary">
         </form>
     </div>
