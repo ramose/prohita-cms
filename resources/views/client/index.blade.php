@@ -1,9 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Clients') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
+@section('content')
+    
 
     <div>
 
@@ -24,16 +21,18 @@
                 <th>Name</th>
                 <th>Email 1</th>
                 <th>Email 2</th>
-                <th>Mobile</th>
+                <th>Phone</th>
+                <th>Address</th>
                 <th></th>
                 <th></th>
             </tr>
             @foreach ($client as $w)
                 <tr>
-                    <td>{{ $w->client_name }}</td>
-                    <td>{{ $w->client_email_1 }}</td>
-                    <td>{{ $w->client_email_2 }}</td>
-                    <td>{{ $w->client_mobile }}</td>
+                    <td>{{ $w->name }}</td>
+                    <td>{{ $w->email1 }}</td>
+                    <td>{{ $w->email2 }}</td>
+                    <td>{{ $w->phone }}</td>
+                    <td>{{ $w->address }}</td>
                     <td><a href="/client/{{ $w->id }}/edit" class="btn btn-secondary">Edit</a></td>
                     <td>
                         <form action="/client/{{ $w->id }}" method="POST">
@@ -46,5 +45,5 @@
             @endforeach
         </table>
     </div>
-</x-app-layout>
-{{-- @stop --}}
+
+@endsection
