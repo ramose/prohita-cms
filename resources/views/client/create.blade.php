@@ -8,12 +8,12 @@
 
       <div class="mb-3">
         <label for="client_name" class="form-label">Name</label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="">
+        <input type="text" name="name" class="form-control" id="name" placeholder="" required>
       </div>
 
       <div class="mb-3">
         <label for="email_1" class="form-label">Email 1</label>
-        <input type="text" name="email1" class="form-control" id="email_1" placeholder="">
+        <input type="text" name="email1" class="form-control" id="email_1" placeholder="" required>
       </div>
 
       <div class="mb-3">
@@ -23,7 +23,7 @@
 
       <div class="mb-3">
         <label for="mobile" class="form-label">Mobile</label>
-        <input type="text" name="phone" class="form-control" id="mobile" placeholder="">
+        <input type="text" name="phone" class="form-control" id="mobile" placeholder="" required>
       </div>
 
       <div class="mb-3">

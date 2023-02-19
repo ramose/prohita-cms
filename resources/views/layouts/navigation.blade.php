@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('client')" :active="request()->routeIs('client')">
                         {{ __('Clients') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('izin')">
+                    <x-nav-link :href="route('permit')" :active="request()->routeIs('izin')">
                         {{ __('Perizinan') }}
                     </x-nav-link>
                 </div>

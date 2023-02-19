@@ -19,12 +19,22 @@ Route::get('/', function () {
 });
 
 // Route::get('/', [ClientController::class, "index"]);
+// Client
 Route::get('/client', [ClientController::class, "index"])->middleware(['auth', 'verified'])->name('client');
 Route::get('/client/create', [ClientController::class, "create"])->middleware(['auth', 'verified'])->name('create');
 Route::post('/client/store', [ClientController::class, "store"]);
 Route::get('/client/{id}/edit', [ClientController::class, "edit"])->middleware(['auth', 'verified'])->name('edit');
 Route::put('/client/{id}', [ClientController::class, "update"]);
 Route::delete('/client/{id}', [ClientController::class, "destroy"]);
+
+// Permit
+Route::get('/permit', [ClientController::class, "index"])->middleware(['auth', 'verified'])->name('permit');
+Route::get('/permit/create', [ClientController::class, "create"])->middleware(['auth', 'verified'])->name('create');
+Route::post('/permit/store', [ClientController::class, "store"]);
+Route::get('/permit/{id}/edit', [ClientController::class, "edit"])->middleware(['auth', 'verified'])->name('edit');
+Route::put('/permit/{id}', [ClientController::class, "update"]);
+Route::delete('/permit/{id}', [ClientController::class, "destroy"]);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
