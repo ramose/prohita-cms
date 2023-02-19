@@ -14,7 +14,8 @@ class PermitController extends Controller
      */
     public function index()
     {
-        //
+        $permit = Permit::all();
+        return view("permit.index", compact(['permit']));
     }
 
     /**
@@ -24,7 +25,7 @@ class PermitController extends Controller
      */
     public function create()
     {
-        //
+        return view('permit.create');
     }
 
     /**
@@ -35,7 +36,8 @@ class PermitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Permit::create($request->except('_token', 'submit'));
+        return redirect('/permit');
     }
 
     /**
@@ -55,9 +57,10 @@ class PermitController extends Controller
      * @param  \App\Models\Permit  $permit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Permit $permit)
+    public function edit($id)
     {
-        //
+        $permit = Permit::find($id);
+        return view('permit.edit', compact(['permit']));
     }
 
     /**
@@ -67,9 +70,11 @@ class PermitController extends Controller
      * @param  \App\Models\Permit  $permit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Permit $permit)
+    public function update(Request $request, $id)
     {
-        //
+        $permit = Permit::find($id);
+        $permit->update($request->except('_token','submit'));
+        return redirect('/permit');
     }
 
     /**
@@ -78,8 +83,10 @@ class PermitController extends Controller
      * @param  \App\Models\Permit  $permit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Permit $permit)
+    public function destroy($id)
     {
-        //
+        $permit = Permit::find($id);
+        $permit->delete();
+        return redirect('/permit');
     }
 }

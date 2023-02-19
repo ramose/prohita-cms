@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PermitController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,12 +30,12 @@ Route::put('/client/{id}', [ClientController::class, "update"]);
 Route::delete('/client/{id}', [ClientController::class, "destroy"]);
 
 // Permit
-Route::get('/permit', [ClientController::class, "index"])->middleware(['auth', 'verified'])->name('permit');
-Route::get('/permit/create', [ClientController::class, "create"])->middleware(['auth', 'verified'])->name('create');
-Route::post('/permit/store', [ClientController::class, "store"]);
-Route::get('/permit/{id}/edit', [ClientController::class, "edit"])->middleware(['auth', 'verified'])->name('edit');
-Route::put('/permit/{id}', [ClientController::class, "update"]);
-Route::delete('/permit/{id}', [ClientController::class, "destroy"]);
+Route::get('/permit', [PermitController::class, "index"])->middleware(['auth', 'verified'])->name('permit');
+Route::get('/permit/create', [PermitController::class, "create"])->middleware(['auth', 'verified'])->name('create');
+Route::post('/permit/store', [PermitController::class, "store"]);
+Route::get('/permit/{id}/edit', [PermitController::class, "edit"])->middleware(['auth', 'verified'])->name('edit');
+Route::put('/permit/{id}', [PermitController::class, "update"]);
+Route::delete('/permit/{id}', [PermitController::class, "destroy"]);
 
 
 Route::get('/dashboard', function () {
