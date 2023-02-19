@@ -43,8 +43,8 @@ Route::get('/transaction', [TransactionController::class, "index"])->middleware(
 Route::get('/transaction/create', [TransactionController::class, "create"])->middleware(['auth', 'verified'])->name('create');
 Route::post('/transaction/store', [TransactionController::class, "store"]);
 Route::get('/transaction/{id}/edit', [TransactionController::class, "edit"])->middleware(['auth', 'verified'])->name('edit');
-// Route::put('/permit/{id}', [PermitController::class, "update"]);
-// Route::delete('/permit/{id}', [PermitController::class, "destroy"]);
+Route::put('/transaction/{id}', [TransactionController::class, "update"]);
+Route::delete('/transaction/{id}', [TransactionController::class, "destroy"]);
 
 
 Route::get('/dashboard', function () {

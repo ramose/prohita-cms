@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Permit;
 use Illuminate\Http\Request;
 
-class PermitController extends Controller
+class TransactionControllerPermitController extends Controller
 {
     /**
      * Display a listing of the resource.

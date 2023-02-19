@@ -93,9 +93,11 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaction $transaction)
+    public function update(Request $request, $id)
     {
-        //
+        $transaction = Transaction::find($id);
+        $transaction->update($request->except('_token','submit'));
+        return redirect('/transaction');
     }
 
     /**
