@@ -78,9 +78,12 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transaction $transaction)
+    public function edit($id)
     {
-        //
+        $clients = Client::all();
+        $permits = Permit::all();
+        $data = Transaction::find($id);
+        return view('transaction.edit', compact(['data','clients','permits']));
     }
 
     /**

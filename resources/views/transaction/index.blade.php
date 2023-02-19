@@ -21,7 +21,6 @@
                 <th>Client</th>
                 <th>Permit</th>
                 <th></th>
-                <th></th>
             </tr>
             @foreach ($data as $w)
                 <tr>
