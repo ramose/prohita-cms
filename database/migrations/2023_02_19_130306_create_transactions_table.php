@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->integer('client_id');
+            $table->integer('permit_id');
             $table->timestamps();
         });
     }

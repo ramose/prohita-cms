@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Permit;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
@@ -14,7 +17,24 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        // $data = Transaction::all();
+        // $data = DB::table("clients, permits, transactions")
+        // ->select("clients.name", "permits.name")
+        // ->where("clients.id", "=", "transactions.client_id")
+        // ->where("permits.id", "=", "transactions.permit_id")
+        // ->get();
+
+        $data = DB::table('clients as A')
+        ->join('transactions as C', 'A.id', '=', 'C.client_id')
+        ->join('permits as B', 'B.id', '=', 'C.permit_id')
+        ->select('C.id', 'A.name as client_name', 'B.name as permit_name')
+        ->get();
+
+        // $sql = 'SELECT A.name, B.name FROM clients as A, permits as B, transactions as C WHERE A.id = C.client_id AND B.id = C.permit_id';
+
+        // $data = DB::select($sql);
+        
+        return view("transaction.index", compact(['data']));
     }
 
     /**
@@ -24,7 +44,9 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+        $permits = Permit::all();
+        return view('transaction.create', compact(['clients','permits' ]));
     }
 
     /**
@@ -35,7 +57,8 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Transaction::create($request->except(['_token', 'submit']));
+        return redirect('/transaction');
     }
 
     /**

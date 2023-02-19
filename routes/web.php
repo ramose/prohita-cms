@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PermitController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,14 @@ Route::post('/permit/store', [PermitController::class, "store"]);
 Route::get('/permit/{id}/edit', [PermitController::class, "edit"])->middleware(['auth', 'verified'])->name('edit');
 Route::put('/permit/{id}', [PermitController::class, "update"]);
 Route::delete('/permit/{id}', [PermitController::class, "destroy"]);
+
+// Transaction
+Route::get('/transaction', [TransactionController::class, "index"])->middleware(['auth', 'verified'])->name('transaction');
+Route::get('/transaction/create', [TransactionController::class, "create"])->middleware(['auth', 'verified'])->name('create');
+Route::post('/transaction/store', [TransactionController::class, "store"]);
+// Route::get('/permit/{id}/edit', [PermitController::class, "edit"])->middleware(['auth', 'verified'])->name('edit');
+// Route::put('/permit/{id}', [PermitController::class, "update"]);
+// Route::delete('/permit/{id}', [PermitController::class, "destroy"]);
 
 
 Route::get('/dashboard', function () {
